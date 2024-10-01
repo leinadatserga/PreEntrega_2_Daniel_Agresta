@@ -4,35 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Periódico para nivel de glucosa en sangre</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-        button {
-            margin-top: 20px;
-        }
-        .formulario-dia {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
 
     <h1>Registro Periódico para nivel de glucosa en sangre</h1>
 
-    <div>
-        <label for="date">Fecha:</label>
-        <input type="date" id="date" required>
+    <div class="fecha">
+        <label for="fechaRegistro">Fecha de ingreso del registro:</label>
+        <span id="fechaRegistro"></span>
+        <p>Tu Registro se guardará con la fecha actual, independientemente del día de la semana que elijas.</p>
+        <p>Lo ideal es ingresar todas las mediciones tomadas en la jornada anterior y hacerlo diariamente por lo menos durante 7 días.</p>
+        <p>De esta forma tendrás un informe completo con los valores actualizados para llevar a tu cita con el médico especialista.</p>
     </div>
 
     <h2>Día de la semana:</h2>
+    
     <select id="diaSeleccionado" onchange="mostrarFormulario(this.value)">
         <option value="">Selecciona un día</option>
         <option value="Lunes">Lunes</option>
@@ -44,112 +31,11 @@
         <option value="Domingo">Domingo</option>
     </select>
 
-    <div id="formularios">
-        <div class="formulario-dia" id="Lunes">
-            <h3>Lunes</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Martes">
-            <h3>Martes</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Miércoles">
-            <h3>Miércoles</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Jueves">
-            <h3>Jueves</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Viernes">
-            <h3>Viernes</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Sábado">
-            <h3>Sábado</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-        <div class="formulario-dia" id="Domingo">
-            <h3>Domingo</h3>
-            <label>Antes del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después del desayuno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la comida: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Antes de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Después de la cena: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-            <label>Nocturno: <input type="number" step="0.1" class="glucose" placeholder="valor de 20 a 300 (mg/dL)"></label>
-        </div>
-    </div>
+    <div id="formularios"></div>
 
-    <button type="button" onclick="guardarDatos()">Guardar Registros</button>
-
-    <script>
-        const registros = [];
-
-        function mostrarFormulario(dia) {
-            const formularios = document.querySelectorAll('.formulario-dia');
-            formularios.forEach(formulario => {
-                formulario.style.display = 'none'; // Oculta todos los formularios
-            });
-
-            if (dia) {
-                document.getElementById(dia).style.display = 'block'; // Muestra el formulario seleccionado
-            }
-        }
-
-        function guardarDatos() {
-            const fecha = document.getElementById('date').value;
-            const diaSeleccionado = document.getElementById('diaSeleccionado').value;
-
-            if (!fecha || !diaSeleccionado) {
-                alert('Por favor, selecciona una fecha y un día.');
-                return;
-            }
-
-            const niveles = Array.from(document.querySelectorAll(`#${diaSeleccionado} .glucose`))
-                .map(input => parseFloat(input.value) || null);
-
-            registros.push({ fecha, dia: diaSeleccionado, niveles });
-            console.log(registros);
-            alert('Registros guardados correctamente. Revisa la consola para ver los datos.');
-        }
-    </script>
-
+    <button type="button" onclick="guardarDatos()">Guardar Registro</button>
+    <button onclick="redirigir()">Volver al inicio</button>
+    <p id="registroDiario"></p>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

@@ -1,12 +1,26 @@
 body {
+    height: 100vh;
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: aquamarine;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 h1, h2 {
     text-align: center;
 }
-input {
+.navegador {
+    display:flex;
+    justify-content: space-around;
+
+}
+#medidorInsulina, #registroPeriodico {
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-top: 100PX;
+    width: fit-content;
+}
+input, select {
     margin: 5px 0;
     padding: 5px;
     background-color: khaki;
@@ -17,9 +31,19 @@ label {
     display: inline-block;
     text-align: center;
     width: 206px;
-}
-button {
     margin-top: 10px;
+}
+.fecha label {
+    width: 100%;
+    text-align: start;
+    display: block;
+}
+.fecha span{
+    width: 200px;
+    font-weight: bolder;
+}
+button, a {
+    margin-top: 20px;
     padding: 7px;
     border-radius: 10px;
     font-weight: bolder;
@@ -31,4 +55,22 @@ button {
 }
 #resultado ul li {
     padding: 10px;
+}
+table, td, th {
+    border: 2px solid;
+    border-collapse: collapse;
+    padding: 6px;
+    text-align: center;
+    background-color: khaki;
+}
+.formulario-dia {
+    display: flex;
+    flex-direction: column;
+}
+.formulario-dia label {
+    width: 100%;
+    text-align: start;
+}
+.formulario-dia input {
+    width: 190px;
 }
